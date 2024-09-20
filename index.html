@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --green: rgb(109, 160, 32);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .header {
+            background-color: black;
+            color: white;
+            padding: 5px;
+        }
+
+        .nav-container {
+            height: 50px;
+            border-bottom: 1px solid gray;
+        }
+
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.282);
+        }
+
+        .nav-link:visited {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-left {
+            align-items: center;
+            color: var(--green);
+        }
+
+        .nav-right {
+            align-items: center;
+            gap: 5px;
+        }
+
+        .bg-container {
+            height: 80vh;
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+
+        .bg-img {
+            position: absolute;
+            z-index: -10;
+            width: 100%;
+            filter: brightness(0.45);
+        }
+
+        .main-container {
+            justify-content: center;
+            align-items: center;
+            height: 30vh;
+        }
+
+        .input-container {
+            background-color: white;
+            padding: 10px;
+            height: 50px;
+            border-radius: 25px;
+        }
+
+        .input-container>input {
+            flex: 1;
+            border: none;
+            outline: none;
+            margin-left: 20px;
+        }
+
+        .input-container>button {
+            border-radius: 25px;
+            border: none;
+            color: white;
+            background-color: var(--green);
+        }
+        .input-container>button:hover{
+            background-color: green;
+            cursor: pointer;
+        }
+
+        .toggle-btn{
+            display: none;
+        }
+
+
+
+        @media screen and (max-width:767px) {
+            .bg-container {
+                height: 400px;
+            }
+
+            .toggle-btn{
+                display: inline-block;
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-weight: bold;
+                padding-left: 20px;
+                padding-right: 20px;
+                cursor: pointer;
+            }
+
+            .toggle-btn:hover{
+                background-color: rgba(255, 255, 255, 0.162);
+                
+            }
+            
+            .nav-right {
+                align-items: center;
+                gap: 5px;
+                flex-direction: column;
+                align-items: start;
+                background-color: rgb(41, 41, 41);
+                height: 200px;
+                position: fixed;
+                top: 80px;
+                right: 0;
+                z-index: 10;
+                width: 150px;
+                transition: 1s;
+            }
+
+            .nav-right.hidden{
+                right: -150px;
+            }
+
+
+            .nav-link {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header flex">
+        <div class="left">
+            <i class="fa-solid fa-location-dot"></i> Mumbai
+            <i class="fa-solid fa-phone"></i> 022324234
+            <i class="fa-regular fa-envelope"></i> help@travelwithme.com
+        </div>
+
+        <div class="right">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook"></i>
+        </div>
+    </div>
+    <div class="bg-container">
+        <img class="bg-img" src="./background-4.jpg" />
+        <nav class="nav-container flex">
+            <div class="nav-left flex">
+                <h1>LiveTrip</h1>                
+            </div>
+            <button class="toggle-btn" onclick="toggle()"><i class="fa-solid fa-bars"></i></button>
+            <div id="nav-bar" class="nav-right flex">
+                <a href="#" class="nav-link">HOME</a>
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#gallery" class="nav-link">GALLERY</a>
+                <a href="#destination" class="nav-link">DESTINATION</a>
+            </div>
+        </nav>
+        <div class="main-container flex">
+            <div>
+                <h2>Tell us where do you want to go.</h2>
+                <div class="input-container flex">
+                    <input placeholder="eg. Goa" />
+                    <button>Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div id="about">
+            <h1>About</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, voluptatum ratione quos totam
+                officiis nemo enim, consequatur maxime nobis nisi neque numquam voluptas? Laborum unde ipsam temporibus
+                eligendi, dolorem laudantium aut sit, nihil assumenda mollitia perferendis vero, explicabo officiis.
+                Sequi impedit quidem atque harum enim est, itaque totam, beatae iure vel odit, ullam sint nihil
+                temporibus ipsam maiores nam quasi? Ab quam consectetur accusantium. Iste nobis quidem harum inventore
+                incidunt architecto recusandae eaque perferendis dolorum sit? Ipsum est aut suscipit aspernatur
+                molestias repudiandae ipsam sit veniam, temporibus voluptatibus vitae. Odit ipsam maiores mollitia
+                consectetur officiis aliquid? Ut dolor, dolorem libero placeat consectetur modi alias molestias? Magni
+                placeat rem voluptatem ea et accusamus quae voluptatum eius iste. Labore fuga nesciunt repellendus culpa
+                temporibus consequatur aspernatur mollitia deserunt itaque, iste accusantium similique pariatur odit
+                voluptatem accusamus iusto quae nobis tempora nostrum delectus a veniam libero enim. At cum laborum
+                inventore, iure rerum ipsa quaerat quibusdam dolores vel quo quasi pariatur nostrum vero quam nam. Quas
+                tenetur esse recusandae accusantium aperiam similique repudiandae officia ab, dignissimos possimus quam
+                sit. Repudiandae, impedit facere, tempore eos ullam tenetur ipsam error suscipit doloremque praesentium
+                illum dolorem esse nisi vel eum perferendis. Tempore nam adipisci nulla sequi!
+            </p>
+        </div>
+        <div id="gallery">
+            <h1>Gallery</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, voluptatum ratione quos totam
+                officiis nemo enim, consequatur maxime nobis nisi neque numquam voluptas? Laborum unde ipsam temporibus
+                eligendi, dolorem laudantium aut sit, nihil assumenda mollitia perferendis vero, explicabo officiis.
+                Sequi impedit quidem atque harum enim est, itaque totam, beatae iure vel odit, ullam sint nihil
+                temporibus ipsam maiores nam quasi? Ab quam consectetur accusantium. Iste nobis quidem harum inventore
+                incidunt architecto recusandae eaque perferendis dolorum sit? Ipsum est aut suscipit aspernatur
+                molestias repudiandae ipsam sit veniam, temporibus voluptatibus vitae. Odit ipsam maiores mollitia
+                consectetur officiis aliquid? Ut dolor, dolorem libero placeat consectetur modi alias molestias? Magni
+                placeat rem voluptatem ea et accusamus quae voluptatum eius iste. Labore fuga nesciunt repellendus culpa
+                temporibus consequatur aspernatur mollitia deserunt itaque, iste accusantium similique pariatur odit
+                voluptatem accusamus iusto quae nobis tempora nostrum delectus a veniam libero enim. At cum laborum
+                inventore, iure rerum ipsa quaerat quibusdam dolores vel quo quasi pariatur nostrum vero quam nam. Quas
+                tenetur esse recusandae accusantium aperiam similique repudiandae officia ab, dignissimos possimus quam
+                sit. Repudiandae, impedit facere, tempore eos ullam tenetur ipsam error suscipit doloremque praesentium
+                illum dolorem esse nisi vel eum perferendis. Tempore nam adipisci nulla sequi!
+            </p>
+        </div>
+        <div id="destination">
+            <h1>Destination</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, voluptatum ratione quos totam
+                officiis nemo enim, consequatur maxime nobis nisi neque numquam voluptas? Laborum unde ipsam temporibus
+                eligendi, dolorem laudantium aut sit, nihil assumenda mollitia perferendis vero, explicabo officiis.
+                Sequi impedit quidem atque harum enim est, itaque totam, beatae iure vel odit, ullam sint nihil
+                temporibus ipsam maiores nam quasi? Ab quam consectetur accusantium. Iste nobis quidem harum inventore
+                incidunt architecto recusandae eaque perferendis dolorum sit? Ipsum est aut suscipit aspernatur
+                molestias repudiandae ipsam sit veniam, temporibus voluptatibus vitae. Odit ipsam maiores mollitia
+                consectetur officiis aliquid? Ut dolor, dolorem libero placeat consectetur modi alias molestias? Magni
+                placeat rem voluptatem ea et accusamus quae voluptatum eius iste. Labore fuga nesciunt repellendus culpa
+                temporibus consequatur aspernatur mollitia deserunt itaque, iste accusantium similique pariatur odit
+                voluptatem accusamus iusto quae nobis tempora nostrum delectus a veniam libero enim. At cum laborum
+                inventore, iure rerum ipsa quaerat quibusdam dolores vel quo quasi pariatur nostrum vero quam nam. Quas
+                tenetur esse recusandae accusantium aperiam similique repudiandae officia ab, dignissimos possimus quam
+                sit. Repudiandae, impedit facere, tempore eos ullam tenetur ipsam error suscipit doloremque praesentium
+                illum dolorem esse nisi vel eum perferendis. Tempore nam adipisci nulla sequi!
+            </p>
+        </div>
+    </div>
+    <script>
+        function toggle(){
+            document.getElementById("nav-bar").classList.toggle("hidden")
+        }
+    </script>
+</body>
+
+</html>
